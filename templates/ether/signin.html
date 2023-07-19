@@ -1,0 +1,71 @@
+{% extends 'ether/index.html' %}
+{% load static %}
+{% block title %}
+    <title>Document</title>
+{% endblock %}
+{% block body_block %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissable fade show" role="alert">
+        <strong>Message:</strong> {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+    <!-- Default form login -->
+    <br><br><br><br><br>
+<form class="text-center border border-light p-5" action="{% url 'signin' %}" method="POST">
+    {% csrf_token %}
+    <p class="h4 mb-4">Sign in</p>
+
+    <!-- Email -->
+    <input type="text" id="username" class="form-control mb-4" placeholder="username" name="username" >
+
+    <!-- Password -->
+    <input type="password" id="pass1" class="form-control mb-4" placeholder="Password" name="pass1">
+
+    <div class="d-flex justify-content-around">
+        <div>
+            <!-- Remember me -->
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
+                <label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
+            </div>
+        </div>
+        <div>
+            <!-- Forgot password -->
+            <a href="">Forgot password?</a>
+        </div>
+    </div>
+
+    <!-- Sign in button -->
+    <button class="btn btn-info btn-block my-4" type="submit">Sign in</button>
+
+    <!-- Register -->
+    <p>Not a member?
+        <a href="">Register</a>
+    </p>
+
+    <!-- Social login -->
+    <p>or sign in with:</p>
+
+    <a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
+    <a href="#" class="mx-2" role="button"><i class="fab fa-twitter light-blue-text"></i></a>
+    <a href="#" class="mx-2" role="button"><i class="fab fa-linkedin-in light-blue-text"></i></a>
+    <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a>
+
+</form>
+<!-- Default form login -->
+    <!-- <h2>signIn</h2>
+    <form action="{% url 'signin' %}" method="POST">
+        {% csrf_token %}
+        <label for="">Username</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username " required>
+        <br>
+        <label for="">Password</label>
+        <input type="password" id="pass1" name="pass1" placeholder="Enter Your Password" required>
+        
+        <button type="submit">Sign In</button>
+    </form> -->
+{% endblock %}
+</html>

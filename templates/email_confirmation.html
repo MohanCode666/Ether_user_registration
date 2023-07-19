@@ -1,0 +1,11 @@
+{% autoescape off %}
+
+Welcome to Ether Login
+
+Hello {{ name }}!
+
+Please Confirm your email by clicking on the following Link.
+
+Confirmation Link: http://{{ domain }}{% url 'activate' uidb64=uid token=token%}
+
+{% endautoescape %}

@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="full-height">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+    <title >Authentication</title>
+    {% endblock %}
+    {% load static %}
+    <link rel="icon"  href="{% static 'images/ether.png' %}" type="image/x-icon" >
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+  <style>
+    .view {
+      background: url("{% static 'images/space.jpg'%}")no-repeat center center;
+      background-size: cover;
+  }
+   .navbar{
+    color: blueviolet;
+   }
+  html,
+  body,
+  header,
+  .view {
+    height: 100%;
+  }
+ h2,h5,p{
+  color:azure;
+ }
+ h2:hover,h5:hover,p:hover{
+  color: grey;
+ }
+ h2,h5,p{
+  font-weight: 900;
+ }
+ .p{
+  color: orchid;
+ }
+  </style>
+</head>
+<body>
+
+  <html lang="en" class="full-height">
+
+  <!--Main Navigation-->
+  <header>
+  
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark indigo">
+      <a class="navbar-brand" href="{% url 'home' %}"><strong>Ether</strong></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissable fade show" role="alert">
+        <strong>Message:</strong> {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+    {% if user.is_authenticated %}
+    <h3>Hello {{ fname }}</h3> 
+    <h4>You're Successfully Logged in.</h4>
+    <a href="/signout">Signout</a>
+    {% else %}
+    <li class="nav-item active">
+    <a class="nav-link" href="{% url 'signin' %}">Login <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="{% url 'signup' %}">SignUp</a>
+    </li>
+    {% endif %}
+          <li class="nav-item">
+            <a class="nav-link" href="">Profile</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    
+  
+    <div class="view intro-2">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text">
+            <div class="white-text text-center wow fadeInUp">
+              {% block body_block %} 
+              <br><br><br><br><br><br><br><br><br><br><br>
+              
+              
+              <h2>Welcome to Ether</h2>
+              <h5>We provide Crypto Statistics </h5>
+              <br>
+              <p class="p">Thank you for Visiting our Page </p>
+                {% endblock %} 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </header>
+  <!--Main Navigation-->
+  
+    <!-- {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissable fade show" role="alert">
+        <strong>Message:</strong> {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+    <h1>Welcome to ether</h1>
+
+    {% if user.is_authenticated %}
+    <h3>Hello {{ fname }}</h3> 
+    <h4>You're Successfully Logged in.</h4>
+    <button type="submit"><a href="/signout">Signout</a></button>
+    {% else %}
+    <button type="submit"><a href="/signup">SignUp</a></button>
+    <button type="submit"><a href="/signin">SignIn</a></button>
+    {% endif %} -->
+  
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script> 
+    <script src="{% static 'js/mdb.js' %}"></script>
+</body>
+</html>

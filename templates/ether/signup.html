@@ -1,0 +1,109 @@
+{% extends 'ether/index.html' %}
+{% load static %}
+{% block title %}
+<title>Signup</title>
+{% endblock %}
+
+{% block body_block %}
+    
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissable fade show" role="alert">
+        <strong>Message:</strong> {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+    <br>
+    <br><br>
+    <div class="view intro-2">
+        <div class="full-bg-img">
+          <div class="mask rgba-black-light flex-center">
+            <div class="container text-center white-text">
+              <div class="white-text text-center wow fadeInUp">
+
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <center>
+        <!-- Default form register -->
+<form class="text-center border border-light p-5" action="/signup" method="POST">
+     {% csrf_token %}
+    <p class="h4 mb-4">Sign up</p>
+
+    <div class="form-row mb-4">
+        <div class="col">
+            <!-- Username -->
+            <input type="text" id="username" class="form-control" placeholder="user name" name="username" required>
+        </div>
+        <div class="col">
+            <!-- First name -->
+            <input type="text" id="fname" class="form-control" placeholder="First name" name="fname" required>
+        </div>
+        <div class="col">
+            <!-- Last name -->
+            <input type="text" id="lname" class="form-control" placeholder="Last name" name="lname" required>
+        </div>
+    </div>
+
+    <!-- E-mail -->
+    <input type="email" id="emai" class="form-control mb-4" placeholder="E-mail" name="email" required>
+
+    <!-- Password -->
+    <input type="password" id="pass1" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock" name="pass1" required>
+    <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+        At least 8 characters and 1 digit
+    </small>
+    <!-- confirm Password -->
+    <input type="password" id="pass2" class="form-control" placeholder="Confirm Password" aria-describedby="defaultRegisterFormPasswordHelpBlock" name="pass2" required>
+    <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+        At least 8 characters and 1 digit
+    </small>
+
+
+    <!-- Sign up button -->
+    <button class="btn btn-info my-4 btn-block" type="submit">Sign Up</button>
+
+    <!-- Social register -->
+    <p>or sign up with:</p>
+
+    <a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
+    <a href="#" class="mx-2" role="button"><i class="fab fa-twitter light-blue-text"></i></a>
+    <a href="#" class="mx-2" role="button"><i class="fab fa-linkedin-in light-blue-text"></i></a>
+    <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a>
+
+    <hr>
+
+    <!-- Terms of service -->
+    <p>By clicking
+        <em>Sign up</em> you agree to our
+        <a href="" target="_blank">terms of service</a>
+
+</form>
+<!-- Default form register -->
+    <!-- <h2>signup bolthe</h2>
+    <form action="/signup" method="POST">
+        {% csrf_token %}
+        <label for="">Username</label>
+        <input type="text" id="username" name="username" placeholder="create username (only letters and numbers)" required>
+        <br>
+        <label for="">First name</label>
+        <input type="text" id="fname" name="fname" placeholder="Enter Your First Name" required>
+        <br>
+        <label for="">Last name</label>
+        <input type="text" id="lname" name="lname" placeholder="Enter Your Last Name" required>
+        <br>
+        <label for="">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="Enter Your Email" required>
+        <br>
+        <label for="">Password</label>
+        <input type="password" id="pass1" name="pass1" placeholder="Create a Password" required>
+        <br>
+        <label for="">Confirm your Pass</label>
+        <input type="password" id="pass2" name="pass2" placeholder="Confirm Your Password" required>
+        <br>
+        <button type="submit">Sign Up</button>
+    </form></center> -->
+{% endblock %}
