@@ -33,9 +33,9 @@ EMAIL_PORT =EMAIL_PORT
 SECRET_KEY = 'django-insecure-^-z(85cu(go0^$c=nj)yh@#h30kd@+==i8)c#j5v5dq6+dbz0%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ether-umg7.onrender.com']
 
 
 # Application definition
