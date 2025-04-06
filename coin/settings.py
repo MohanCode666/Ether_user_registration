@@ -36,7 +36,7 @@ if not SECRET_KEY:
     raise Exception("DJANGO_SECRET_KEY is not set in environment variables")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['ether-umg7.onrender.com']
 
