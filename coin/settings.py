@@ -30,7 +30,10 @@ EMAIL_PORT =EMAIL_PORT
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-^-z(85cu(go0^$c=nj)yh@#h30kd@+==i8)c#j5v5dq6+dbz0%'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+
+if not SECRET_KEY:
+    raise Exception("DJANGO_SECRET_KEY is not set in environment variables")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
